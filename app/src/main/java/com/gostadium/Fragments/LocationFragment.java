@@ -1,4 +1,4 @@
-package com.gostadium;
+package com.gostadium.Fragments;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -19,6 +19,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.gostadium.R;
 
 public class LocationFragment extends Fragment implements LocationListener {
 

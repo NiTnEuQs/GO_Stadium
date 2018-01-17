@@ -14,22 +14,44 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.gostadium.Fragments.LocationFragment;
+import com.gostadium.Fragments.NewsFragment;
+import com.gostadium.Fragments.SearchFragment;
+import com.gostadium.Fragments.ShareFragment;
+
 public class MainMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     NavigationView navigationView;
     BottomNavigationView navigation;
 
+    private FirebaseAuth firebaseAuth;
+    private GoogleSignInClient googleSignInClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(getApplication());
+
+        /* Si l'utilisateur est déjà connecté, on accède à son profil, sinon on le redirige vers
+         * le formulaire d'authentification
+         */
+        firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() == null){
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        }
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        /*
-        Fragment fragment_mainmenu = new MainMenuActivityFragment();
-        transaction.replace(R.id.content_fragment_mainmenu, fragment_mainmenu);
-        */
         Fragment fragment = new NewsFragment();
         transaction.replace(R.id.content_fragment, fragment);
         transaction.commit();
@@ -48,6 +70,13 @@ public class MainMenuActivity extends AppCompatActivity
 
         navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
     }
 
     @Override
@@ -98,6 +127,10 @@ public class MainMenuActivity extends AppCompatActivity
             case R.id.nav_help:
                 intent = new Intent(this, HelpActivity.class);
                 break;
+            case R.id.nav_logout:
+                signOut();
+                intent = new Intent(this, LoginActivity.class);
+                break;
             default:
                 intent = new Intent(this, MainMenuActivity.class);
                 break;
@@ -137,5 +170,16 @@ public class MainMenuActivity extends AppCompatActivity
             return true;
         }
     };
+
+    private void signOut() {
+        // Firebase sign out
+        firebaseAuth.signOut();
+
+        // Google sign out
+        googleSignInClient.signOut();
+
+        //Facebook sign out
+        LoginManager.getInstance().logOut();
+    }
 
 }

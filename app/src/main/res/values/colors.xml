@@ -3,4 +3,5 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ffa040</color>
+    <color name="goStadiumBackground">#6cacda</color>
 </resources>
