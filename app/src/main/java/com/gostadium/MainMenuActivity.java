@@ -13,6 +13,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
@@ -21,6 +24,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.gostadium.Fragments.LocationFragment;
 import com.gostadium.Fragments.NewsFragment;
 import com.gostadium.Fragments.SearchFragment;
@@ -46,10 +50,8 @@ public class MainMenuActivity extends AppCompatActivity
         /* Si l'utilisateur est déjà connecté, on accède à son profil, sinon on le redirige vers
          * le formulaire d'authentification
          */
+
         firebaseAuth = FirebaseAuth.getInstance();
-        if(firebaseAuth.getCurrentUser() == null){
-            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-        }
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         Fragment fragment = new NewsFragment();
@@ -77,6 +79,46 @@ public class MainMenuActivity extends AppCompatActivity
                 .build();
 
         googleSignInClient = GoogleSignIn.getClient(this, gso);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
+        drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(@NonNull View drawerView) {
+                FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+
+                if (currentUser == null) return;
+
+                TextView name_account = findViewById(R.id.name_account);
+                name_account.setText(currentUser.getDisplayName());
+
+                TextView email_account = findViewById(R.id.email_account);
+                email_account.setText(currentUser.getEmail());
+
+                ImageView image_account = findViewById(R.id.image_account);
+                // TODO Trouver l'image du compte Google/Facebook et l'affecter à image_account
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
     }
 
     @Override

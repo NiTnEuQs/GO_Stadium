@@ -22,6 +22,8 @@
     <string name="menu_help">Aide</string>
     <string name="menu_logout">Déconnexion</string>
 
+    <string name="copyright">Copyright © GO Stadium Team 2018</string>
+
     <!-- String related to Faebook -->
     <string name="facebook_app_id">1917853465196569</string>
     <string name="fb_login_protocol_scheme">fb1917853465196569</string>

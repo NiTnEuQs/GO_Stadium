@@ -28,7 +28,6 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class LoginActivity extends Activity {
@@ -50,9 +49,11 @@ public class LoginActivity extends Activity {
         setContentView(R.layout.activity_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        if(firebaseAuth.getCurrentUser() != null){
+        if (firebaseAuth.getCurrentUser() != null) {
             finish();
         }
+
+        callbackManager = CallbackManager.Factory.create();
 
         progressDialog = new ProgressDialog(this);
 
@@ -63,8 +64,6 @@ public class LoginActivity extends Activity {
                 startActivityForResult(googleSignInClient.getSignInIntent(), RC_SIGN_IN);
             }
         });
-
-        callbackManager = CallbackManager.Factory.create();
 
         buttonFacebookSignIn = findViewById(R.id.facebook_sign_in_button);
         buttonFacebookSignIn.setReadPermissions("email", "public_profile");
@@ -94,16 +93,6 @@ public class LoginActivity extends Activity {
                 .build();
 
         googleSignInClient = GoogleSignIn.getClient(this, gso);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if (currentUser != null) {
-             finish();
-        }
     }
 
     @Override
@@ -143,7 +132,6 @@ public class LoginActivity extends Activity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
@@ -164,7 +152,6 @@ public class LoginActivity extends Activity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
