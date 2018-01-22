@@ -10,5 +10,5 @@
     <item name="ic_menu_account" type="drawable">@drawable/ic_account_box_black_48dp</item>
     <item name="ic_menu_favorites" type="drawable">@drawable/ic_star_border_black_48dp</item>
     <item name="ic_menu_help" type="drawable">@android:drawable/ic_menu_help</item>
-    <item name="ic_menu_logout" type="drawable">@android:drawable/ic_menu_delete</item>
+    <item name="ic_menu_logout" type="drawable">@drawable/ic_power_settings_new_black_48dp</item>
 </resources>
