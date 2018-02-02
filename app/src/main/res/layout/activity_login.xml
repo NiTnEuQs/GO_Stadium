@@ -4,7 +4,7 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gostadium.LoginActivity"
+    tools:context="com.gostadium.Activities.LoginActivity"
     android:background="@color/goStadiumBackground"
     android:padding="@dimen/activity_vertical_margin" >
 
@@ -15,12 +15,17 @@
         android:gravity="center_horizontal"
         android:orientation="vertical" >
 
-        <ImageView
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:src="@drawable/logo_gostadium_idle" />
+
+        <!--ImageView
             android:id="@+id/imageView"
             android:layout_width="240dp"
             android:layout_height="240dp"
-            android:src="@drawable/go_stadium_logo_typo"
-            android:contentDescription="@string/app_name" />
+            android:src="@drawable/ic_logo_typo"
+            android:contentDescription="@string/app_name" /-->
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/google_sign_in_button"

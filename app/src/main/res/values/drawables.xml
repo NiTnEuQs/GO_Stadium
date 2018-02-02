@@ -3,12 +3,21 @@
     <item name="ic_menu_gallery" type="drawable">@android:drawable/ic_menu_gallery</item>
     <item name="ic_menu_slideshow" type="drawable">@android:drawable/ic_menu_slideshow</item>
     <item name="ic_menu_manage" type="drawable">@android:drawable/ic_menu_manage</item>
-    <item name="ic_menu_share" type="drawable">@android:drawable/ic_menu_share</item>
     <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
 
+    <item name="ic_logo_typo" type="drawable">@drawable/ic_gostadium_logo_typo</item>
+    <item name="ic_logo_typo_round" type="drawable">@drawable/ic_gostadium_logo_typo_round</item>
+
     <item name="ic_menu_home" type="drawable">@drawable/ic_home_black_48dp</item>
-    <item name="ic_menu_account" type="drawable">@drawable/ic_account_box_black_48dp</item>
     <item name="ic_menu_favorites" type="drawable">@drawable/ic_star_border_black_48dp</item>
-    <item name="ic_menu_help" type="drawable">@android:drawable/ic_menu_help</item>
+    <item name="ic_menu_favorites_white" type="drawable">@drawable/ic_star_border_white_48dp</item>
+    <item name="ic_menu_star" type="drawable">@drawable/ic_star_black_48dp</item>
+    <item name="ic_menu_star_white" type="drawable">@drawable/ic_star_white_48dp</item>
+    <item name="ic_menu_settings" type="drawable">@drawable/ic_settings_black_48dp</item>
+    <item name="ic_menu_help" type="drawable">@drawable/ic_help_outline_black_48dp</item>
     <item name="ic_menu_logout" type="drawable">@drawable/ic_power_settings_new_black_48dp</item>
+    <item name="ic_menu_share" type="drawable">@drawable/ic_share_black_48dp</item>
+    <item name="ic_menu_location" type="drawable">@drawable/ic_location_on_black_48dp</item>
+    <item name="ic_menu_my_location" type="drawable">@drawable/ic_my_location_black_48dp</item>
+    <item name="ic_menu_search" type="drawable">@drawable/ic_search_black_48dp</item>
 </resources>
