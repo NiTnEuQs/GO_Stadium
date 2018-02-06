@@ -29,7 +29,11 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
     //puis ajouter une fonction pour remplir la cellule en fonction d'un String
     public void bind(Fixture fixture){
         tv_result_home_team.setText(fixture.getHomeTeamName());
-        tv_result.setText(fixture.getResult().getGoalsHomeTeam() + " - " + fixture.getResult().getGoalsAwayTeam());
+        tv_result.setText(
+                fixture.getStatus().equals("FINISHED")
+                ? fixture.getResult().getGoalsHomeTeam() + " - " + fixture.getResult().getGoalsAwayTeam()
+                : " - "
+        );
         tv_result_away_team.setText(fixture.getAwayTeamName());
         //Picasso.with(imageView.getContext()).load(myObject.getImageUrl()).centerCrop().fit().into(imageView);
     }

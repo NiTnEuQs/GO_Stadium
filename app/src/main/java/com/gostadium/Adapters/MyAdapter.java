@@ -8,22 +8,24 @@ import android.view.ViewGroup;
 import com.gostadium.API.Fixture;
 import com.gostadium.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-    List<Fixture> list;
+    List<Fixture> list = new ArrayList<>();
 
     //ajouter un constructeur prenant en entrée une liste
     public MyAdapter(List<Fixture> list) {
-        this.list = list;
+        if (list != null) this.list = list;
+        else this.list = new ArrayList<>();
     }
 
     //cette fonction permet de créer les viewHolder
     //et par la même indiquer la vue à inflater (à partir des layout xml)
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int itemType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rv_item, viewGroup,false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rv_match_item, viewGroup,false);
         return new MyViewHolder(view);
     }
 

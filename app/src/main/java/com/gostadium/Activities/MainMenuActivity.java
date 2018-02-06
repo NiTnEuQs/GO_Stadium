@@ -194,9 +194,11 @@ public class MainMenuActivity extends AppCompatActivity
         Intent intent;
 
         switch (position) {
+            /*
             case R.id.nav_favorites:
                 intent = new Intent(this, FavoritesActivity.class);
                 break;
+            */
             case R.id.nav_manage:
                 intent = new Intent(this, SettingsActivity.class);
                 break;

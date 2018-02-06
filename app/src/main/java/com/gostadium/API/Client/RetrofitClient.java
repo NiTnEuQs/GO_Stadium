@@ -1,4 +1,4 @@
-package com.gostadium.API;
+package com.gostadium.API.Client;
 
 import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
