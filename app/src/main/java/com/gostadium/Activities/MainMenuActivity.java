@@ -31,7 +31,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.gostadium.Fragments.LocationFragment;
 import com.gostadium.Fragments.NewsFragment;
 import com.gostadium.Fragments.SearchFragment;
-import com.gostadium.Fragments.ShareFragment;
 import com.gostadium.R;
 
 public class MainMenuActivity extends AppCompatActivity
@@ -198,13 +197,13 @@ public class MainMenuActivity extends AppCompatActivity
             case R.id.nav_favorites:
                 intent = new Intent(this, FavoritesActivity.class);
                 break;
-            */
             case R.id.nav_manage:
                 intent = new Intent(this, SettingsActivity.class);
                 break;
             case R.id.nav_help:
                 intent = new Intent(this, HelpActivity.class);
                 break;
+            */
             case R.id.nav_logout:
                 signOut();
                 intent = new Intent(this, LoginActivity.class);
@@ -235,9 +234,11 @@ public class MainMenuActivity extends AppCompatActivity
                 case R.id.navigation_location:
                     fragment = new LocationFragment();
                     break;
+                /*
                 case R.id.navigation_share:
                     fragment = new ShareFragment();
                     break;
+                */
             }
 
             assert fragment != null;
