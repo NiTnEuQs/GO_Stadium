@@ -31,6 +31,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.gostadium.R;
 
+/**
+ * La classe qui gère la partie de l'authentification de l'application
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 9001;
@@ -38,9 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private CallbackManager callbackManager;
 
-    private SignInButton buttonGoogleSignIn;
-    private LoginButton buttonFacebookSignIn;
-
+    // Variables d'authentification
     private FirebaseAuth firebaseAuth;
     private GoogleSignInClient googleSignInClient;
 
@@ -58,7 +59,8 @@ public class LoginActivity extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
 
-        buttonGoogleSignIn = findViewById(R.id.google_sign_in_button);
+        // Partie importante sur l'authentification avec Facebook
+        SignInButton buttonGoogleSignIn = findViewById(R.id.google_sign_in_button);
         buttonGoogleSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,28 +68,23 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        buttonFacebookSignIn = findViewById(R.id.facebook_sign_in_button);
+        LoginButton buttonFacebookSignIn = findViewById(R.id.facebook_sign_in_button);
         buttonFacebookSignIn.setReadPermissions("email", "public_profile");
         buttonFacebookSignIn.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                // App code
                 firebaseAuthWithFacebook(loginResult.getAccessToken());
                 finish();
             }
 
             @Override
-            public void onCancel() {
-                // App code
-            }
+            public void onCancel() {}
 
             @Override
-            public void onError(FacebookException exception) {
-                // App code
-            }
+            public void onError(FacebookException exception) {}
         });
 
-        // Configure Google Sign In
+        // Partie importante sur l'authentification avec Google
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -122,6 +119,9 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Gère l'authentification avec Google
+     */
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         progressDialog.setMessage("Authentification en cours ...");
         progressDialog.show();
@@ -145,6 +145,9 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Gère l'authentification avec Facebook
+     */
     private void firebaseAuthWithFacebook(AccessToken token) {
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         firebaseAuth.signInWithCredential(credential)
@@ -165,6 +168,9 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    /**
+     * Gère la disparition du clavier automatique
+     */
     private void dismissKeyboard() {
         View view = getCurrentFocus();
         if (view != null) {

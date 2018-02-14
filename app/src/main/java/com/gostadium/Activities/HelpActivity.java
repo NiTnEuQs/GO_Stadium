@@ -7,6 +7,10 @@ import android.view.MenuItem;
 
 import com.gostadium.R;
 
+/**
+ * La classe qui gère la partie d'aide du Navigation Drawer
+ * On ne l'utilise pas dans l'application en l'état actuel
+ */
 public class HelpActivity extends AppCompatActivity {
 
     @Override

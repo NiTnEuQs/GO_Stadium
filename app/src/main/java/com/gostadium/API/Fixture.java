@@ -5,6 +5,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Fixture {
 
+    @SerializedName("_links")
+    @Expose
+    private LinksFixture _links;
+
     @SerializedName("date")
     @Expose
     private String date;

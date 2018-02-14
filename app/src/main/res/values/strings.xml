@@ -114,4 +114,13 @@
         completions."
     </string>
     <string name="title_activity_club_details">ClubDetailsActivity</string>
+    <string name="title_favoris">Favoris</string>
+    <string name="title_description">Description</string>
+    <string name="content_description">Icône de géolocalisation</string>
+    <string name="title_next_match">Prochain match</string>
+    <string name="title_last_result">Dernier résultat</string>
+    <string name="title_calendar">Calendrier</string>
+    <string name="title_pending_matchs">Matchs en cours</string>
+    <string name="title_incoming_matchs">Matchs à venir</string>
+    <string name="title_results">Résultats</string>
 </resources>

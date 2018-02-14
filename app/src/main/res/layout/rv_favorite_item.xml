@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="@dimen/go_text_result"
+    android:paddingBottom="@dimen/go_text_result"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/tv_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_margin"
+        android:layout_marginEnd="@dimen/text_margin"
+        app:layout_constraintRight_toLeftOf="@id/tv_result"
+        tools:text="Amiens SC"
+        android:onClick="onClickFavorite"
+        android:clickable="true"
+        android:focusable="true" />
+
+</android.support.constraint.ConstraintLayout>

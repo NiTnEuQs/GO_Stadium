@@ -7,13 +7,17 @@ import java.util.List;
 
 public class Fixtures {
 
+    @SerializedName("_links")
+    @Expose
+    private LinksBase _links;
+
     @SerializedName("fixtures")
     @Expose
     private List<Fixture> fixtures;
 
     // Getters / Setters
 
-    public List<Fixture> getFixtures() {
+    List<Fixture> getFixtures() {
         return fixtures;
     }
 

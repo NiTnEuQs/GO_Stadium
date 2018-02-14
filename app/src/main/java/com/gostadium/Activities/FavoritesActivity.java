@@ -8,6 +8,11 @@ import android.view.MenuItem;
 
 import com.gostadium.R;
 
+/**
+ * La classe qui gère la partie des favoris du Navigation Drawer
+ * On ne l'utilise pas dans l'application en l'état actuel
+ * @see com.gostadium.Fragments.FavoritesFragment
+ */
 public class FavoritesActivity extends AppCompatActivity {
 
     @Override

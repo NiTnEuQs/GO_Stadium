@@ -6,7 +6,7 @@
 
     You can also add your credentials to an existing key, using these values:
 
-    Package name:
+    PackleagueCaptionname:
     AE:97:17:86:34:36:C9:F8:07:6C:5E:8B:0B:C6:D4:33:92:8E:DD:36
 
     SHA-1 certificate fingerprint:
@@ -18,6 +18,6 @@
     Once you have your key (it starts with "AIza"), replace the "google_maps_key"
     string in this file.
     -->
-    <!--string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCSuJLtySblPtOyL2rFdVaXzTzuzqxfBOM</string-->
+    <!--strleagueCaptionname="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCSuJLtySblPtOyL2rFdVaXzTzuzqxfBOM</string-->
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAl8MpiP6SEHGcFTN_p45sjFLi2I3YvUHo</string>
 </resources>

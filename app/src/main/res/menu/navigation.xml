@@ -7,7 +7,7 @@
         android:title="@string/title_news" />
 
     <item
-        android:id="@+id/navigation_search"
+        android:id="@+id/navigation_favorites"
         android:icon="@drawable/ic_menu_favorites"
         android:title="@string/menu_favorites" />
 

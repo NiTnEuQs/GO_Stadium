@@ -23,8 +23,8 @@
                 android:layout_margin="@dimen/text_margin"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Matchs en cours"
-                android:textSize="20dp" />
+                android:text="@string/title_pending_matchs"
+                android:textSize="20sp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_pendingMatchs"
@@ -46,8 +46,8 @@
                 android:layout_margin="@dimen/text_margin"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Matchs à venir"
-                android:textSize="20dp" />
+                android:text="@string/title_incoming_matchs"
+                android:textSize="20sp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_incomingMatchs"
@@ -69,11 +69,11 @@
                 android:layout_margin="@dimen/text_margin"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Résultats"
-                android:textSize="20dp" />
+                android:text="@string/title_results"
+                android:textSize="20sp" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_results"
+                android:id="@+id/rv_last_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/text_margin"

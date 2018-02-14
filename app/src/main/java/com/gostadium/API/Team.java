@@ -5,6 +5,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Team {
 
+    @SerializedName("_links")
+    @Expose
+    private Links _links;
+
     @SerializedName("name")
     @Expose
     private String name;
@@ -18,6 +22,15 @@ public class Team {
     private String shortName;
 
     // Getters / Setters
+
+
+    public Links get_links() {
+        return _links;
+    }
+
+    public void set_links(Links _links) {
+        this._links = _links;
+    }
 
     public String getName() {
         return name;

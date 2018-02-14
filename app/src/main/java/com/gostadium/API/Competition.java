@@ -5,6 +5,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class Competition {
 
+    @SerializedName("_links")
+    @Expose
+    private LinksCompetition _links;
+
     @SerializedName("id")
     @Expose
     private int id;
@@ -42,6 +46,15 @@ public class Competition {
     private String lastUpdated;
 
     // Getters / Setters
+
+
+    public LinksCompetition get_links() {
+        return _links;
+    }
+
+    public void set_links(LinksCompetition _links) {
+        this._links = _links;
+    }
 
     public int getId() {
         return id;
